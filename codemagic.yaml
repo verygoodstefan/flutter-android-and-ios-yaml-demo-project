@@ -8,6 +8,9 @@ workflows:
         GOOGLE_PLAY_TRACK: "alpha"
       flutter: stable
     scripts:
+      - name: Get latest tag
+        script: |
+          set TAG=$(git describe --tags)
       - name: Set up local.properties
         script: |
           echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
